@@ -26,8 +26,8 @@ namespace AddressBook
         return View["show_new_contact.cshtml", newContact];
       };
       Get["/contacts/{id}"] = parameters => {
-        Contact searchContact = Contact.FindContact(parameters.id);
-        return View["show_contact.cshtml", searchContact];
+        Contact contact = Contact.FindContact(parameters.id);
+        return View["show_contact.cshtml", contact];
       };
       Post["/clear"] = _ => {
         Contact.ClearAddressBook();
@@ -45,6 +45,7 @@ namespace AddressBook
         List<Group> groups = Group.GetAllGroups();
         return View["create_new_contact.cshtml", groups];
       };
+      Get ["/search"] = _ => View ["search_contacts.cshtml"];
     }
   }
 }

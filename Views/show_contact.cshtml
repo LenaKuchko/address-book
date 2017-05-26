@@ -15,7 +15,7 @@ else
         <li>Street: @Model.GetAddress().GetStreet()</li>
       </ul>
     </li>
-    <li>Group: @model.GetGroupName()</li>
+    <li>Group: @Model.GetGroupName()</li>
   </ul>
   <form action="/contacts" method="post">
     <input type="text" name="delete-contact"  value="@Model.GetId()">

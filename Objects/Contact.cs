@@ -44,10 +44,10 @@ namespace AddressBook.Objects
     {
       return _contacts;
     }
-    // public int GetGroupId()
-    // {
-    //   return _groupId;
-    // }
+    public string GetGroupName()
+    {
+      return _groupName;
+    }
     public static Contact FindContact(int searchId)
     {
       if (searchId-1 > _contacts.Count) {
@@ -65,6 +65,29 @@ namespace AddressBook.Objects
     public void DeleteContact()
     {
       _contacts.Remove(this);
+    }
+    public static List<Contact> GetSearchContacts (string searchBy, string searchParameter)
+    {
+      List<Contact> matchContacts = new List<Contact>{};
+      if (searchBy == "name") {
+        foreach (Contact item in _contacts) {
+          if (item._name == searchParameter) {
+            matchContacts.Add(item);
+          }
+        }
+        return matchContacts;
+      }
+      else if (searchBy == "phoneNumber") {
+        foreach (Contact item in _contacts) {
+          if (item._phoneNumber == searchParameter) {
+            matchContacts.Add(item);
+          }
+        }
+        return matchContacts;
+      }
+      else {
+        return matchContacts;
+      }
     }
   }
 }

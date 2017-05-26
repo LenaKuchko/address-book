@@ -1,11 +1,12 @@
 <h2>You added new contact!</h2>
-<strong><ul>@Model.GetName()</strong>
-  <li>@Model.GetPhoneNumber()
+<strong><ul>Name: @Model.GetName()</strong>
+  <li>Phone number: @Model.GetPhoneNumber()
     <ul><strong>Address</strong>
-      <li>@Model.GetAddress().GetState()</li>
-      <li>@Model.GetAddress().GetCity()</li>
-      <li>@Model.GetAddress().GetStreet()</li>
+      <li>State: @Model.GetAddress().GetState()</li>
+      <li>City: @Model.GetAddress().GetCity()</li>
+      <li>Street: @Model.GetAddress().GetStreet()</li>
     </ul>
   </li>
+  <li>Group: @Model.GetGroupName()</li>
 </ul>
 <a href="/">Home</a>
