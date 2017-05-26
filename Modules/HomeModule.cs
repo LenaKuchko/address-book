@@ -32,7 +32,6 @@ namespace AddressBook
         Contact contact = Contact.FindContact(Request.Form["delete-contact"]);
         contact.DeleteContact();
         List<Contact> contacts = Contact.GetAllContacts();
-        // contact = Contact.FindContact(Request.Form["delete-contact"]);
         return View["index.cshtml", contacts];
       };
     }
