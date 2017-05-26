@@ -20,6 +20,9 @@ namespace AddressBook
       Post["/contacts/new"] = _ => {
         Address address = new Address(Request.Form["state"], Request.Form["city"], Request.Form["street"]);
         Contact newContact = new Contact(Request.Form["name"], Request.Form["phone"], address);
+        Group group = Group.FindGroup(Request.Form["group"]);
+        newContact.SetGroupName(group.GetGroupName());
+        group.SaveContactIntoGroup(newContact);
         return View["show_new_contact.cshtml", newContact];
       };
       Get["/contacts/{id}"] = parameters => {

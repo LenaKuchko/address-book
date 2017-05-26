@@ -10,7 +10,7 @@ namespace AddressBook.Objects
     private string _name;
     private string _phoneNumber;
     private Address _address;
-    private int _groupId;
+    private string _groupName;
 
     public Contact(string name, string phoneNumber, Address address)
     {
@@ -20,7 +20,10 @@ namespace AddressBook.Objects
       _contacts.Add(this);
       _id = _contacts.Count;
     }
-
+    public void SetGroupName(string groupName)
+    {
+      _groupName = groupName;
+    }
     public int GetId()
     {
       return _id;
@@ -41,10 +44,10 @@ namespace AddressBook.Objects
     {
       return _contacts;
     }
-    public int GetGroupId()
-    {
-      return _groupId;
-    }
+    // public int GetGroupId()
+    // {
+    //   return _groupId;
+    // }
     public static Contact FindContact(int searchId)
     {
       if (searchId-1 > _contacts.Count) {

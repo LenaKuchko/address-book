@@ -4,10 +4,19 @@ namespace AddressBook.Objects
 {
   public class Group
   {
-    private static List<Group> _groups = new List<Group> {};
+    private static List<Group> _groups = new List<Group>
+    {
+      new Group("General", 1)
+    };
     private int _id;
     private string _groupName;
     private List<Contact> _groupContacts = new List<Contact> {};
+
+    public Group(string groupName, int id)
+    {
+      _groupName = groupName;
+      _id = id;
+    }
 
     public Group(string groupName)
     {
@@ -35,6 +44,10 @@ namespace AddressBook.Objects
     public void SaveContactIntoGroup(Contact newContact)
     {
       _groupContacts.Add(newContact);
+    }
+    public static Group FindGroup(int searchId)
+    {
+      return _groups[searchId-1];
     }
   }
 }

@@ -17,6 +17,12 @@
     </form>
 
     <form action="/contacts/new" method="post">
+      <select class="form-control" name="group">
+        @foreach(var group in @Model)
+        {
+          <option value="@group.GetId()">@group.GetGroupName()</option>
+        }
+      </select>
       <div class="group-form">
         <label for="name">Name: </label>
         <input class="form-control" type="text" name="name" value="">
