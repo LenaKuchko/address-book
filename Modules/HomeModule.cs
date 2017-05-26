@@ -13,7 +13,10 @@ namespace AddressBook
         List<Contact> contacts = Contact.GetAllContacts();
         return View["index.cshtml", contacts];
       };
-      Get["/contacts/new"] = _ => View ["create_new_contact.cshtml"];
+      Get["/contacts/new"] = _ => {
+        List<Group> groups = Group.GetAllGroups();
+        return View ["create_new_contact.cshtml", groups];
+      };
       Post["/contacts/new"] = _ => {
         Address address = new Address(Request.Form["state"], Request.Form["city"], Request.Form["street"]);
         Contact newContact = new Contact(Request.Form["name"], Request.Form["phone"], address);
@@ -33,6 +36,11 @@ namespace AddressBook
         contact.DeleteContact();
         List<Contact> contacts = Contact.GetAllContacts();
         return View["index.cshtml", contacts];
+      };
+      Post["/groups/new"] = _ => {
+        Group group = new Group (Request.Form["group-name"]);
+        List<Group> groups = Group.GetAllGroups();
+        return View["create_new_contact.cshtml", groups];
       };
     }
   }

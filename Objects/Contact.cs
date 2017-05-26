@@ -10,6 +10,7 @@ namespace AddressBook.Objects
     private string _name;
     private string _phoneNumber;
     private Address _address;
+    private int _groupId;
 
     public Contact(string name, string phoneNumber, Address address)
     {
@@ -39,6 +40,10 @@ namespace AddressBook.Objects
     public static List<Contact> GetAllContacts()
     {
       return _contacts;
+    }
+    public int GetGroupId()
+    {
+      return _groupId;
     }
     public static Contact FindContact(int searchId)
     {

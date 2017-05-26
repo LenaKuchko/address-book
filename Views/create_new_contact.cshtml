@@ -1,25 +1,46 @@
 <h2>Create new Contact</h2>
-<form action="/contacts/new" method="post">
-  <div class="group-form">
-    <label for="name">Name: </label>
-    <input class="form-control" type="text" name="name" value="">
+<div class="row">
+  <div class="col-md-6">
+    <h3>Select group</h3>
+    <select class="form-control" name="group">
+      @foreach(var group in @Model)
+      {
+        <option value="@group.GetId()">@group.GetGroupName()</option>
+      }
+    </select>
+    <form action="/groups/new" method="post">
+      <div class="group-form">
+        <label for="group-name">Group: </label>
+        <input class="form-control" type="text" name="group-name" value="">
+      </div>
+      <button type="submit" name="button">Add group</button>
+    </form>
+
+    <form action="/contacts/new" method="post">
+      <div class="group-form">
+        <label for="name">Name: </label>
+        <input class="form-control" type="text" name="name" value="">
+      </div>
+      <div class="group-form">
+        <label for="phone">Phone: </label>
+        <input type="text" name="phone" value="">
+      </div>
+      <h3>Address:</h3>
+      <div class="group-form">
+        <label for="state">State: </label>
+        <input type="text" name="state" value="">
+      </div>
+      <div class="form-group">
+        <label for="city">City: </label>
+        <input type="text" name="city" value="">
+      </div>
+      <div class="form-group">
+        <label for="street">Street: </label>
+        <input type="text" name="street" value="">
+      </div>
+      <button class="btn btn-success" type="submit" name="button">Add Contact</button>
+    </form>
   </div>
-  <div class="group-form">
-    <label for="phone">Phone: </label>
-    <input type="text" name="phone" value="">
+  <div class="col-md-6">
   </div>
-    <h3>Address:</h3>
-  <div class="group-form">
-    <label for="state">State: </label>
-    <input type="text" name="state" value="">
-  </div>
-  <div class="form-group">
-    <label for="city">City: </label>
-    <input type="text" name="city" value="">
-  </div>
-  <div class="form-group">
-    <label for="street">Street: </label>
-    <input type="text" name="street" value="">
-  </div>
-  <button class="btn btn-success" type="submit" name="button">Add Contact</button>
-</form>
+</div>

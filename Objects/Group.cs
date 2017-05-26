@@ -32,5 +32,9 @@ namespace AddressBook.Objects
     {
       return _groupContacts;
     }
+    public void SaveContactIntoGroup(Contact newContact)
+    {
+      _groupContacts.Add(newContact);
+    }
   }
 }
