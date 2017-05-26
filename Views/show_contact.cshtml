@@ -1,15 +1,18 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
 @if(@Model == null)
 {
   <p>This contact doen't exist</p>
 }
 else
 {
-  <strong><ul>@Model.GetName()</strong>
-    <li>@Model.GetPhoneNumber()
+  <strong><ul>Contact Name: @Model.GetName()</strong>
+    <li>Phone number: @Model.GetPhoneNumber()
       <ul><strong>Address</strong>
-        <li>@Model.GetAddress().GetState()</li>
-        <li>@Model.GetAddress().GetCity()</li>
-        <li>@Model.GetAddress().GetStreet()</li>
+        <li>State: @Model.GetAddress().GetState()</li>
+        <li>City: @Model.GetAddress().GetCity()</li>
+        <li>Street: @Model.GetAddress().GetStreet()</li>
       </ul>
     </li>
   </ul>
