@@ -21,6 +21,15 @@ namespace AddressBook
         Contact newContact = new Contact(Request.Form["name"], Request.Form["phone"], address);
         return View["show_new_contact.cshtml", newContact];
       };
+      Get["/contacts/{id}"] = parameters => {
+        Contact searchContact = Contact.FindContact(parameters.id);
+        return View["show_contact.cshtml", searchContact];
+      };
+      Post["/clear"] = _ => {
+        Contact.ClearAddressBook();
+        List<Contact> contacts = Contact.GetAllContacts();
+        return View["index.cshtml", contacts];
+      };
     }
   }
 }

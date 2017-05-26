@@ -40,5 +40,13 @@ namespace AddressBook.Objects
     {
       return _contacts;
     }
+    public static Contact FindContact(int searchId)
+    {
+      return _contacts[searchId-1];
+    }
+    public static void ClearAddressBook()
+    {
+      _contacts.Clear();
+    }
   }
 }

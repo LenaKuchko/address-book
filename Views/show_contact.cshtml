@@ -1,0 +1,10 @@
+<strong><ul>@Model.GetName()</strong>
+  <li>@Model.GetPhoneNumber()
+    <ul><strong>Address</strong>
+      <li>@Model.GetAddress().GetState()</li>
+      <li>@Model.GetAddress().GetCity()</li>
+      <li>@Model.GetAddress().GetStreet()</li>
+    </ul>
+  </li>
+</ul>
+<a href="/">Home</a>
