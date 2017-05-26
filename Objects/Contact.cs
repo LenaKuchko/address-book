@@ -42,11 +42,21 @@ namespace AddressBook.Objects
     }
     public static Contact FindContact(int searchId)
     {
-      return _contacts[searchId-1];
+      if (searchId-1 > _contacts.Count) {
+        return null;
+      }
+      else
+      {
+        return _contacts[searchId-1];
+      }
     }
     public static void ClearAddressBook()
     {
       _contacts.Clear();
+    }
+    public void DeleteContact()
+    {
+      _contacts.Remove(this);
     }
   }
 }

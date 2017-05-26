@@ -1,10 +1,21 @@
-<strong><ul>@Model.GetName()</strong>
-  <li>@Model.GetPhoneNumber()
-    <ul><strong>Address</strong>
-      <li>@Model.GetAddress().GetState()</li>
-      <li>@Model.GetAddress().GetCity()</li>
-      <li>@Model.GetAddress().GetStreet()</li>
-    </ul>
-  </li>
-</ul>
+@if(@Model == null)
+{
+  <p>This contact doen't exist</p>
+}
+else
+{
+  <strong><ul>@Model.GetName()</strong>
+    <li>@Model.GetPhoneNumber()
+      <ul><strong>Address</strong>
+        <li>@Model.GetAddress().GetState()</li>
+        <li>@Model.GetAddress().GetCity()</li>
+        <li>@Model.GetAddress().GetStreet()</li>
+      </ul>
+    </li>
+  </ul>
+  <form action="/contacts" method="post">
+    <input type="text" name="delete-contact"  value="@Model.GetId()">
+    <button type="submit" name="button">Delete this contact</button>
+  </form>
+}
 <a href="/">Home</a>

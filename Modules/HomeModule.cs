@@ -10,8 +10,6 @@ namespace AddressBook
     public HomeModule()
     {
       Get["/"] = _ => {
-        // Address address = new Address ("Oregon", "Portland", "5th Ave, 400");
-        // Contact newContact = new Contact("Epicodus", "8-888-888-88", address);
         List<Contact> contacts = Contact.GetAllContacts();
         return View["index.cshtml", contacts];
       };
@@ -28,6 +26,13 @@ namespace AddressBook
       Post["/clear"] = _ => {
         Contact.ClearAddressBook();
         List<Contact> contacts = Contact.GetAllContacts();
+        return View["index.cshtml", contacts];
+      };
+      Post["/contacts"] = _ => {
+        Contact contact = Contact.FindContact(Request.Form["delete-contact"]);
+        contact.DeleteContact();
+        List<Contact> contacts = Contact.GetAllContacts();
+        // contact = Contact.FindContact(Request.Form["delete-contact"]);
         return View["index.cshtml", contacts];
       };
     }
