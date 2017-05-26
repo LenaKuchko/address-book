@@ -1,7 +1,30 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
 <h1>Search</h1>
-<select class="" name="search">
-  <option value="name">By Name</option>
-  <option value="state">By Address</option>
-  <option value="phoneNumber">By Phone Number</option>
-  <!-- <option value="order"></option> -->
-</select>
+<form action="/search" method="post">
+  <select name="search">
+    <option value="name">By Name</option>
+    <option value="phoneNumber">By Phone Number</option>
+  </select>
+  <div class="group-control">
+    <label for="search">Enter search criterion</label>
+    <input type="text" name="criterion" value="">
+  </div>
+  <button type="submit" name="button">Find Contacts</button>
+</form>
+<!-- <form action="/search/sort" method="post">
+  <button type="submit" name="button">Sort results by </button>
+</form> -->
+@foreach(var item in @Model)
+{
+  <strong><ul>Contact Name: @item.GetName()</strong>
+    <li>Phone number: @item.GetPhoneNumber()
+      <ul><strong>Address</strong>
+        <li>State: @item.GetAddress().GetState()</li>
+        <li>City: @item.GetAddress().GetCity()</li>
+        <li>Street: @item.GetAddress().GetStreet()</li>
+      </ul>
+    </li>
+  </ul>
+}

@@ -3,3 +3,7 @@ body {
   font-size: 25px;
   background-color: #FCF9E3;
 }
+.btn button {
+  margin: 5px;
+  color: white;
+}

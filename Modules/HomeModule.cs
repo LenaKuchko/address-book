@@ -45,7 +45,14 @@ namespace AddressBook
         List<Group> groups = Group.GetAllGroups();
         return View["create_new_contact.cshtml", groups];
       };
-      Get ["/search"] = _ => View ["search_contacts.cshtml"];
+      Get["/search"] = _ => {
+        List<Contact> matchContacts = new List<Contact> {};
+        return View["search_contacts.cshtml", matchContacts];
+      };
+      Post["/search"] = _ => {
+        List<Contact> matchContacts = Contact.GetSearchContacts(Request.Form["search"], Request.Form["criterion"]);
+        return View["search_contacts.cshtml", matchContacts];
+      };
     }
   }
 }
