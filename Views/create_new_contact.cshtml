@@ -5,22 +5,6 @@
 <div class="row">
   <div class="col-md-6">
     <h3>Select group</h3>
-    <div class="hidden">
-      <!-- <select class="form-control" name="group">
-        @foreach(var group in @Model)
-        {
-          <option value="@group.GetId()">@group.GetGroupName()</option>
-        }
-      </select> -->
-      <form action="/groups/new" method="post">
-        <div class="group-form">
-          <label for="group-name">Group: </label>
-          <input class="form-control" type="text" name="group-name" value="">
-        </div>
-        <button id="add-group" type="submit" name="button">Add</button>
-      </form>
-    </div>
-    <button id="new-group" class="btn btn-succsess" type="button" name="button">Add new Group</button>
     <form action="/contacts/new" method="post">
       <select class="form-control" name="group">
         @foreach(var group in @Model)
@@ -34,24 +18,35 @@
       </div>
       <div class="group-form">
         <label for="phone">Phone: </label>
-        <input type="text" name="phone" value="">
+        <input class="form-control" type="text" name="phone" value="">
       </div>
       <h3>Address:</h3>
       <div class="group-form">
         <label for="state">State: </label>
-        <input type="text" name="state" value="">
+        <input class="form-control" type="text" name="state" value="">
       </div>
       <div class="form-group">
         <label for="city">City: </label>
-        <input type="text" name="city" value="">
+        <input class="form-control" type="text" name="city" value="">
       </div>
       <div class="form-group">
         <label for="street">Street: </label>
-        <input type="text" name="street" value="">
+        <input class="form-control" type="text" name="street" value="">
       </div>
       <button class="btn btn-success" type="submit" name="button">Add Contact</button>
     </form>
   </div>
   <div class="col-md-6">
+    <div id="new-group" class="hidden">
+      <form action="/groups/new" method="post">
+        <div class="group-form">
+          <label for="group-name">Group: </label>
+          <input class="form-control" type="text" name="group-name" value="">
+        </div>
+        <button id="add-group" class="btn btn-succes" type="submit" name="button">Add new Group</button>
+      </form>
+    </div>
+    <button id="btn-new-group" class="btn btn-succsess" type="button" name="button">Add new Group</button>
+
   </div>
 </div>

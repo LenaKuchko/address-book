@@ -3,19 +3,17 @@
 }
 <h1>Search</h1>
 <form action="/search" method="post">
-  <select name="search">
+  <select class="form-control" name="search">
     <option value="name">By Name</option>
     <option value="phoneNumber">By Phone Number</option>
   </select>
   <div class="group-control">
     <label for="search">Enter search criterion</label>
-    <input type="text" name="criterion" value="">
+    <input class="form-control" type="text" name="criterion" value="">
   </div>
-  <button type="submit" name="button">Find Contacts</button>
+  <button class="btn btn-success" type="submit" name="button">Find Contacts</button>
 </form>
-<!-- <form action="/search/sort" method="post">
-  <button type="submit" name="button">Sort results by </button>
-</form> -->
+
 @foreach(var item in @Model)
 {
   <strong><ul>Contact Name: @item.GetName()</strong>
@@ -28,3 +26,4 @@
     </li>
   </ul>
 }
+<a href="/">Home</a>

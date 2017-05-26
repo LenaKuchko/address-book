@@ -18,8 +18,8 @@ else
     <li>Group: @Model.GetGroupName()</li>
   </ul>
   <form action="/contacts" method="post">
-    <input type="text" name="delete-contact"  value="@Model.GetId()">
-    <button type="submit" name="button">Delete this contact</button>
+    <input class="form-control" type="hidden" name="delete-contact"  value="@Model.GetId()">
+    <button class="btn btn-success" type="submit" name="button">Delete this contact</button>
   </form>
 }
 <a href="/">Home</a>
