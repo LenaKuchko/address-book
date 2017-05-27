@@ -14,7 +14,6 @@ namespace AddressBook.Objects
       _city = city;
       _street = street;
     }
-
     public string GetState()
     {
       return _state;
